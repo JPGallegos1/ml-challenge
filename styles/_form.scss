@@ -1,0 +1,19 @@
+.form {
+  margin-left: $spacing_16;
+  width: 100%;
+
+  .form-content {
+    display: flex;
+
+    .form-input__center {
+      padding: $spacing_16 / 1.25;
+      border: none;
+      width: 100%;
+    }
+
+    .form-button__right {
+      border: none;
+      padding: $spacing_16 / 1.5;
+    }
+  }
+}

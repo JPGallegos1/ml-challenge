@@ -1,0 +1,13 @@
+.breadcrumb-container {
+  margin-bottom: $spacing_16;
+
+  .breadcrumb-list {
+    .breadcrumb {
+      font-size: $font-xs;
+
+      &:not(:nth-child(1)) {
+        margin-left: $spacing_16 / 2;
+      }
+    }
+  }
+}

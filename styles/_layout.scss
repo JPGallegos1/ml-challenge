@@ -1,0 +1,13 @@
+.layout-stack {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing_16;
+  flex: 1;
+}
+
+.layout-stack__container {
+  max-width: $desktop;
+  width: 100%;
+  margin: $centerContent;
+  padding: 0 $spacing_16;
+}

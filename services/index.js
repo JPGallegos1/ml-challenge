@@ -1,5 +1,4 @@
 import { BASE_URL } from "../constants/keys";
-import { description, seller } from "../constants/helpers";
 
 // async function getCategories(products) {
 //   const categories =
@@ -14,36 +13,47 @@ async function getResults(query) {
     const response = await fetch(`${BASE_URL}/sites/MLA/search?q=${query}`);
     const products = await response.json();
     if (!products) return {};
-    const categories =
+    const author = {
+      name: "Juan Pablo",
+      apellido: "Gallegos",
+    };
+    let productsResponse = {};
+    productsResponse.author = author;
+    productsResponse.categories =
       products?.filters[0]?.values[0]?.path_from_root.map(
         (category) => category.name
       ) || [];
-    return products.results?.map((product) => {
+    productsResponse.items = products.results.map((product) => {
       return {
-        author: seller(product.seller?.permalink),
-        categories: [...categories],
-        items: [
+        id: product.id,
+        title: product.title,
+        price: [
           {
-            id: product.id,
-            title: product.title,
-            price: [
-              {
-                decimals: product.price,
-                amount: Number(product.price.toFixed()),
-                currency: product.currency_id,
-              },
-            ],
-            picture: product.thumbnail,
-            condition: product.condition,
-            free_shipping: product.shipping?.free_shipping,
-            description: description,
+            decimals: product.price,
+            amount: Number(product.price.toFixed()),
+            currency: product.currency_id,
           },
         ],
+        picture: product.thumbnail,
+        condition: product.condition,
+        free_shipping: product.shipping?.free_shipping,
+        location: product.address?.state_name,
       };
     });
+    return productsResponse;
   } catch (error) {
     console.log(error);
   }
 }
 
-export { getResults };
+async function getProduct(id) {
+  try {
+    const response = await fetch(`${BASE_URL}/items/${id}`);
+    const product = await response.json();
+    console.log(product);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export { getResults, getProduct };

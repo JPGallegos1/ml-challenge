@@ -1,0 +1,15 @@
+.header {
+  background-color: $yellow;
+  height: $spacing_32 * 2;
+  min-height: $spacing_32 * 2;
+  margin-bottom: $spacing_32;
+
+  .header-content {
+    height: 100%;
+    max-width: $desktop;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 $spacing_16;
+  }
+}
