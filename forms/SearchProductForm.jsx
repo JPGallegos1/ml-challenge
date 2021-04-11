@@ -10,7 +10,7 @@ function SearchProductForm() {
           className="form-input__center"
           type="text"
           autoComplete="off"
-          placeholder="Busca el producto que quieras.."
+          placeholder="Nunca dejes de buscar"
           name="query"
           ref={inputFocus}
           onChange={(event) => setQuery(event.target.value)}

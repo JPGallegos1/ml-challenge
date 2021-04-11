@@ -3,7 +3,7 @@ import HomePage from "../components/Home/HomePage";
 
 function Home() {
   return (
-    <Layout>
+    <Layout section="home">
       <HomePage />
     </Layout>
   );

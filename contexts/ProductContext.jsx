@@ -11,9 +11,7 @@ export function Products({ children }) {
   const inputFocus = useRef(null);
 
   const router = useRouter();
-  const { data, loading, error } = useFetch(
-    `http://localhost:3000/api/items?q=${query}`
-  );
+  const { onSearchProducts } = useFetch();
 
   useEffect(() => {
     if (inputFocus.current) {
@@ -21,9 +19,9 @@ export function Products({ children }) {
     }
   }, []);
 
-  const onSearch = (event) => {
+  const onSearch = async (event) => {
     event.preventDefault();
-
+    const data = await onSearchProducts(query);
     const results = data;
     if (!results) return {};
     setProducts(results.items);
@@ -37,8 +35,6 @@ export function Products({ children }) {
     products,
     categories,
     inputFocus,
-    loading,
-    error,
     onSearch,
     setQuery,
   };

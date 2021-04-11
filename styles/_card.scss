@@ -1,40 +1,35 @@
-.products-container {
-  .products-list {
-  }
-}
-
-.product {
+.products-item {
   margin: $spacing_16 0;
   background-color: #fff;
   border: 1px solid rgb(231, 231, 231);
   border-radius: $spacing_16 / 4;
   cursor: pointer;
 
-  .product-card {
+  .card {
     padding: 0 $spacing_16;
     justify-content: space-between;
 
-    .product-card__container {
+    .card-container {
       min-width: 70%;
-      .product-card__image > img {
+      .card-image > img {
         height: 180px;
         width: 180px;
         border-radius: $spacing_16 / 4;
         margin-right: $spacing_16;
       }
-      .product-card__info {
+      .card-info {
         justify-content: center;
-        .product-card__price {
+        .card-price {
           margin-bottom: $spacing_32;
         }
-        .product-card__shipping {
+        .card-shipping {
           height: 25px;
           width: 25px;
           margin: 4px;
         }
       }
     }
-    .product-card__location {
+    .card-location {
       align-self: center;
       margin-bottom: $spacing_32 * 1.5;
       text-align: center;

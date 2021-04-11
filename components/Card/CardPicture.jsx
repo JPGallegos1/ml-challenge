@@ -1,6 +1,6 @@
 function CardPicture({ picture, title }) {
   return (
-    <div className="product-card__image">
+    <div className="card-image">
       <img src={picture} alt={title} />
     </div>
   );

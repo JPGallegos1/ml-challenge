@@ -5,9 +5,9 @@ import CardLocation from "./CardLocation";
 function Card({ product, visitProduct }) {
   return (
     <>
-      <li className="product" onClick={() => visitProduct(product.id)}>
-        <div className="product-card flex">
-          <div className="product-card__container flex">
+      <li className="products-item" onClick={() => visitProduct(product.id)}>
+        <div className="card flex">
+          <div className="card-container flex">
             <CardPicture picture={product.picture} title={product.title} />
 
             <CardInfo

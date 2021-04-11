@@ -1,10 +1,12 @@
 function CardShipping({ shipping, price }) {
   return (
     <div className="flex">
-      <h2 className="product-card__price">$ {price}</h2>
+      <h2 className="card-price">
+        {price.toLocaleString("es-AR", { style: "currency", currency: "ARS" })}
+      </h2>
       {shipping && (
         <img
-          className="product-card__shipping"
+          className="card-shipping"
           src="/assets/ic_shipping.png"
           alt="Producto con envío"
         />

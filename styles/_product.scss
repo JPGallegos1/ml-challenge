@@ -1,0 +1,46 @@
+.product {
+  padding: $spacing_32;
+  width: 100%;
+
+  .product-column__left {
+    max-width: 680px;
+
+    .product-image {
+      padding: 0 $spacing_32 $spacing_32 0;
+      img {
+        width: 100%;
+      }
+    }
+
+    .product-description {
+      h2 {
+        margin-bottom: $spacing_32;
+        font-size: 28px;
+      }
+      p {
+        margin-bottom: $spacing_32;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .product-column__right {
+    h1 {
+      margin-top: $spacing_16;
+      margin-bottom: $spacing_32;
+      font-size: 24px;
+    }
+
+    h3 {
+      font-size: $spacing_32 + $spacing_16 - 2;
+    }
+
+    button {
+      padding: 1rem;
+      background-color: $blue;
+      color: $white;
+      border: none;
+      border-radius: $spacing_16 / 4;
+    }
+  }
+}

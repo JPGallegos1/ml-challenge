@@ -1,19 +1,18 @@
 import { useProductsContext } from "../../contexts/ProductContext";
 import { useRouter } from "next/router";
 import Breadcrumb from "../Breadcrumb";
-import ReactImageZoom from "react-image-zoom";
 import Card from "../Card/Card";
 
 function HomePage() {
-  const { products } = useProductsContext();
+  const { products, categories } = useProductsContext();
   const router = useRouter();
   const visitProduct = (id) => {
     router.push(`/items/${id}`);
   };
 
   return (
-    <section id="home">
-      <Breadcrumb />
+    <div>
+      <Breadcrumb categories={categories} />
       <div className="products-container">
         <ul className="products-list flex-column">
           {products.map((product) => (
@@ -25,7 +24,7 @@ function HomePage() {
           ))}
         </ul>
       </div>
-    </section>
+    </div>
   );
 }
 

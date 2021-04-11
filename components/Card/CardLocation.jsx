@@ -1,6 +1,6 @@
 function CardLocation({ location }) {
   return (
-    <div className="product-card__location">
+    <div className="card-location">
       <p>{location}</p>
     </div>
   );

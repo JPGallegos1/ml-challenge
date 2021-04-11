@@ -1,7 +1,4 @@
-import { useProductsContext } from "../contexts/ProductContext";
-
-function Breadcrumb() {
-  const { categories } = useProductsContext();
+function Breadcrumb({ categories }) {
   return (
     <div className="breadcrumb-container">
       <ul className="breadcrumb-list flex-row" role="nav">

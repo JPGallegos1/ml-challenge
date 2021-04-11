@@ -1,12 +1,14 @@
 import Header from "./Header";
 import Footer from "./Footer";
 
-function Layout({ children }) {
+function Layout({ children, section }) {
   return (
     <div className="ml-body__main-content">
       <Header />
       <main className="layout-stack">
-        <div className="layout-stack__container">{children}</div>
+        <section id={section} className="layout-stack__container">
+          {children}
+        </section>
       </main>
       <Footer />
     </div>
