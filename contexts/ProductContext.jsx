@@ -1,4 +1,4 @@
-import { useState, useContext, createContext } from "react";
+import { useState, useContext, createContext, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 import useFetch from "../hooks/useFetch";
 
@@ -8,17 +8,24 @@ export function Products({ children }) {
   const [query, setQuery] = useState("");
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
+  const inputFocus = useRef(null);
 
   const router = useRouter();
   const { data, loading, error } = useFetch(
     `http://localhost:3000/api/items?q=${query}`
   );
 
-  const onSearch = async (event) => {
+  useEffect(() => {
+    if (inputFocus.current) {
+      inputFocus.current.focus();
+    }
+  }, []);
+
+  const onSearch = (event) => {
     event.preventDefault();
-    console.log(data);
 
     const results = data;
+    if (!results) return {};
     setProducts(results.items);
     setCategories(results.categories);
 
@@ -26,10 +33,14 @@ export function Products({ children }) {
   };
 
   const context = {
-    onSearch,
-    setQuery,
+    query,
     products,
     categories,
+    inputFocus,
+    loading,
+    error,
+    onSearch,
+    setQuery,
   };
 
   return (
