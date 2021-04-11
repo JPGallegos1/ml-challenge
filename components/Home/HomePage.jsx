@@ -12,7 +12,7 @@ function HomePage() {
   };
 
   return (
-    <section>
+    <section id="home">
       <Breadcrumb />
       <div className="products-container">
         <ul className="products-list flex-column">

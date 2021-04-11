@@ -10,7 +10,11 @@ function Card({ product, visitProduct }) {
           <div className="product-card__container flex">
             <CardPicture picture={product.picture} title={product.title} />
 
-            <CardInfo price={product.price[0].amount} title={product.title} />
+            <CardInfo
+              price={product.price[0].amount}
+              title={product.title}
+              shipping={product.free_shipping}
+            />
           </div>
 
           <CardLocation location={product.location} />

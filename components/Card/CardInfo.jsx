@@ -1,7 +1,9 @@
-function CardInfo({ price, title }) {
+import CardShipping from "./CardShipping";
+
+function CardInfo({ price, title, shipping }) {
   return (
     <div className="product-card__info flex-column">
-      <h2 className="product-card__price">$ {price}</h2>
+      <CardShipping price={price} shipping={shipping} />
       <h4 className="product-card__title">{title}</h4>
     </div>
   );
