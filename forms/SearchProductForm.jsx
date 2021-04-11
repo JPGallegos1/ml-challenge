@@ -1,7 +1,7 @@
 import { useProductsContext } from "../contexts/ProductContext";
 
 function SearchProductForm() {
-  const { onSearch, setQuery } = useProductsContext();
+  const { query, onSearch, setQuery, inputFocus } = useProductsContext();
 
   return (
     <div className="form">
@@ -9,11 +9,18 @@ function SearchProductForm() {
         <input
           className="form-input__center"
           type="text"
+          autoComplete="off"
           placeholder="Busca el producto que quieras.."
           name="query"
+          ref={inputFocus}
           onChange={(event) => setQuery(event.target.value)}
         />
-        <button className="form-button__right" onClick={onSearch} type="submit">
+        <button
+          className="form-button__right"
+          onClick={onSearch}
+          type="submit"
+          disabled={query.length <= 2}
+        >
           <div>
             <img src="/assets/ic_Search.png" alt="Lupe de búsqueda" />
           </div>

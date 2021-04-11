@@ -7,13 +7,23 @@
 
     .form-input__center {
       padding: $spacing_16 / 1.25;
-      border: none;
+      border: 1px solid transparent;
       width: 100%;
+
+      &:focus {
+        border: 1px solid $white;
+      }
     }
 
     .form-button__right {
-      border: none;
+      border: 1px solid transparent;
       padding: $spacing_16 / 1.5;
+      cursor: pointer;
+
+      &:disabled {
+        background-color: $white;
+        cursor: no-drop;
+      }
     }
   }
 }
