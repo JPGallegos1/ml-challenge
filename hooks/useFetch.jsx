@@ -1,12 +1,27 @@
-export default function useFetch() {
+import { useState, useEffect } from "react";
+export default function useFetch(url) {
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState({});
+  const [error, setError] = useState({});
+
+  useEffect(async () => {
+    if (!url) return {};
+    setLoading(true);
+
+    try {
+      const response = await fetch(url);
+      const res = await response.json();
+      setLoading(false);
+      setData(res);
+    } catch (error) {
+      setLoading(false);
+      setError(error);
+    }
+  }, [url]);
+
   return {
-    fetchResults: async (query) => {
-      if (!query) return {};
-      const response = await fetch(
-        `http://localhost:3000/api/items?q=${query}`
-      );
-      const results = await response.json();
-      return results || [];
-    },
+    loading,
+    data,
+    error,
   };
 }

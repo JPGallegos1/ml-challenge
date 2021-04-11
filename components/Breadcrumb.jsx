@@ -6,7 +6,7 @@ function Breadcrumb() {
     <div className="breadcrumb-container">
       <ul className="breadcrumb-list flex-row" role="nav">
         {categories.map((category, index) => (
-          <li className="breadcrumb" key={category.id}>
+          <li className="breadcrumb" key={category}>
             {category} {categories.length - 1 === index ? "" : ">"}
           </li>
         ))}

@@ -10,12 +10,15 @@ export function Products({ children }) {
   const [categories, setCategories] = useState([]);
 
   const router = useRouter();
-  const { fetchResults } = useFetch();
+  const { data, loading, error } = useFetch(
+    `http://localhost:3000/api/items?q=${query}`
+  );
 
   const onSearch = async (event) => {
     event.preventDefault();
+    console.log(data);
 
-    const results = await fetchResults(query);
+    const results = data;
     setProducts(results.items);
     setCategories(results.categories);
 
