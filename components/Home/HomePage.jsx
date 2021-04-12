@@ -4,7 +4,8 @@ import Breadcrumb from "../Breadcrumb";
 import Card from "../Card/Card";
 
 function HomePage() {
-  const { products, categories } = useProductsContext();
+  const context = useProductsContext();
+  const { products = [], categories } = context || {};
   const router = useRouter();
   const visitProduct = (id) => {
     router.push(`/items/${id}`);
