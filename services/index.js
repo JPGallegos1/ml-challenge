@@ -20,7 +20,7 @@ async function getResults(query) {
     let productsResponse = {};
     productsResponse.author = author;
     productsResponse.categories = getCategories(products);
-    productsResponse.items = products.results.map((product) => {
+    productsResponse.items = products.results.slice(0, 4).map((product) => {
       return {
         id: product.id,
         title: product.title,
