@@ -1,13 +1,13 @@
 import { useEffect } from "react";
-import { useProductsContext } from "../../contexts/ProductContext";
 import { useRouter } from "next/router";
 import Breadcrumb from "../Breadcrumb";
 import Card from "../Card/Card";
 import Loading from "../Loading";
+import { useProductsContext } from "../../contexts/ProductContext";
 
 function HomePage() {
   const context = useProductsContext();
-  const { products = [], categories, loading, setProducts } = context || {};
+  const { products = [], categories, setProducts } = context || {};
   const router = useRouter();
   const visitProduct = (id) => {
     router.push(`/items/${id}`);
