@@ -1,7 +1,11 @@
+import Link from "next/link";
+
 function Logo() {
   return (
     <div>
-      <img src="/assets/Logo_ML.png" alt="Logo de Mercado Libre" />
+      <Link href="/">
+        <img src="/assets/Logo_ML.png" alt="Logo de Mercado Libre" />
+      </Link>
     </div>
   );
 }
