@@ -18,6 +18,9 @@ function useForm() {
       if (!results) return {};
       setProducts(results.items);
       setCategories(results.categories);
+      if (window !== undefined) {
+        window.localStorage.setItem("products", JSON.stringify(results.items));
+      }
 
       router.push(`/?q=${query}`);
     },

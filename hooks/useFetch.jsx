@@ -1,11 +1,9 @@
-import { useState } from "react";
+import { useProductsContext } from "../contexts/ProductContext";
 export default function useFetch() {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState({});
+  const context = useProductsContext();
+  const { setLoading, setError } = context || {};
 
   return {
-    loading,
-    error,
     onSearchProducts: async (query) => {
       setLoading(true);
       try {
