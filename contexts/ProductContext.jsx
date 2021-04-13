@@ -7,6 +7,8 @@ export const ProductsContext = createContext();
 export function Products({ children }) {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState({});
   const inputFocus = useRef(null);
 
   useEffect(() => {
@@ -20,6 +22,10 @@ export function Products({ children }) {
     setProducts,
     categories,
     setCategories,
+    loading,
+    setLoading,
+    error,
+    setError,
     inputFocus,
   };
 

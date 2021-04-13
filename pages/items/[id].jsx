@@ -2,12 +2,16 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Layout from "../../layout/Layout";
 import Breadcrumb from "../../components/Breadcrumb";
-import useFetch from "../../hooks/useFetch";
+import ProductPicture from "../../components/Product/ProductPicture";
+import ProductDescription from "../../components/Product/ProductDescription";
+import ProductInfo from "../../components/Product/ProductInfo";
 import { useProductsContext } from "../../contexts/ProductContext";
+import useFetch from "../../hooks/useFetch";
 
 function Product() {
   const [product, setProduct] = useState({});
-  const { categories } = useProductsContext();
+  const context = useProductsContext();
+  const { categories, loading } = context || {};
   const router = useRouter();
   const { getProductById } = useFetch();
 
@@ -22,34 +26,24 @@ function Product() {
   }, [router.query.id]);
   return (
     <Layout section="product">
-      {product ? (
-        <div>
-          <Breadcrumb categories={categories} />
-          <div className="product flex">
-            <div className="product-column__left flex-column">
-              <div className="product-image">
-                <img src={product.picture} alt={product.title} />
-              </div>
-              <div className="product-description">
-                <h2>Description del producto</h2>
-                <p>{product.description}</p>
-              </div>
-            </div>
-            <div className="product-column__right flex-column">
-              <p>
-                {product.condition === "new" ? "Nuevo -" : null}{" "}
-                {product.sold_quantity} vendidos
-              </p>
-              <h1>{product.title}</h1>
-              <h3>$ {product.price?.amount}</h3>
+      <div>
+        <Breadcrumb categories={categories} />
+        <div className="product flex">
+          <div className="product-column__left flex-column">
+            <ProductPicture picture={product.picture} title={product.title} />
 
-              <button>Comprar</button>
-            </div>
+            <ProductDescription description={product.description} />
+          </div>
+          <div className="product-column__right flex-column">
+            <ProductInfo
+              condition={product.condition}
+              quantity={product.sold_quantity}
+              title={product.title}
+              amount={product.price?.amount}
+            />
           </div>
         </div>
-      ) : (
-        <div>Cargando...</div>
-      )}
+      </div>
     </Layout>
   );
 }

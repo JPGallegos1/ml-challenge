@@ -1,4 +1,4 @@
-function ProductPicture({ picture = "", title = "" }) {
+function ProductPicture({ picture, title }) {
   return (
     <div className="product-image">
       <img src={picture} alt={title} />
