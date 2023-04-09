@@ -1,5 +1,5 @@
-const withStyles = require("@webdeb/next-styles");
-module.exports = withStyles({
+// const withStyles = require("@webdeb/next-styles");
+module.exports = {
   sass: true,
   modules: true,
   webpack: (config) => {
@@ -10,4 +10,4 @@ module.exports = withStyles({
       includePaths: ["src/styles"],
     },
   },
-});
+};

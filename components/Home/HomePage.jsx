@@ -22,7 +22,7 @@ function HomePage() {
 
   return (
     <div>
-      {!products.length ? (
+      {!products?.length ? (
         <Loading text="Cargando productos..." />
       ) : (
         <>
